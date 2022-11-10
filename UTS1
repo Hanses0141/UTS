@@ -1,0 +1,111 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Permenanak();
+    int main() {
+    string nama[100];
+    int nilai[100];
+    int i;
+    int n;
+    int selisih;
+    cout << "Hans Pramulia Nugroho/152021141/DD";
+    cout << "masukkan banyak anak : ";
+    cin >> n;
+    cin.ignore();
+
+    for (i = 1; i <= n; i++) {
+        cout << "masukan nama anak : ";
+        getline(cin, nama[i]);
+        cout << "masukan jumlah permen : ";
+        cin >> nilai[i];
+        cin.ignore();
+        cout << "-------------------------" << endl;
+    }
+    for (i = 1; i <= n; i++) {
+        if (nilai[i] > nilai[i + 1]) {
+            cout << "jumlah permen terbanyak : " << nama[i] << endl;
+
+            selisih = nilai[i];
+            for (i = 1; i < n; i++) {
+                if (nilai[i] > selisih)
+                    selisih = nilai[i];
+            }
+            for (i = 1; i < n; i++) {
+                cout << endl;
+                cout << nilai[i] << " selisih jumlah permen terbanyak adalah: " <<
+                    selisih - nilai[i] << endl;
+            }
+        }
+    }
+    
+}
+    void ATM();
+int main() {
+    int i;
+    string pass_input;
+
+    cout << "==========================================\n";
+    cout << "               ATM \n";
+    cout << "==========================================\n\n";
+    string PIN = "24356";
+    string login = "block";
+    i = 1;
+
+    do {
+        cout << "MASUKKAN PIN ANDA = ";
+        cin >> pass_input;
+        if (pass_input == PIN) {
+
+            cout << "=====================\n";
+            cout << ".. Login Berhasil .. " << endl;
+            cout << " \n\n";
+            cout << " \n";
+
+
+            i = 4;
+            login = "berhasil";
+        }
+
+        else {
+            cout << "\n----------------------------------\n";
+            cout << "PIN Salah !! (" << i << "x)\n";
+            cout << "----------------------------------\n\n";
+            i = i + 1;
+        }
+    } while (i <= 3);
+
+    if (login != "berhasil") {
+        cout << "KARTU ANDA TELAH DIBLOKIR, SILAHKAN HUBUNGI BANK TERDEKAT.\n";
+    }
+
+}
+
+void warung();
+int main() {
+    int n;
+    int i;
+    int total;
+    int jam;
+    int harga_akhir;
+
+    cout << "banyak belanjaan : ";
+    cin >> n;
+
+    cout << "total belanjaan : ";
+    cin >> total;
+    cout << "jam belanja : ";
+    cin >> jam;
+
+    if ((jam >= 1300) && (jam <= 1400)) {
+        cout << "Selamat, anda mendapat diskon 20%" << endl;
+        harga_akhir = total - (0.2 * total);
+        cout << "total belanja anda menjadi : " << harga_akhir << endl;
+    }
+
+    else {
+        cout << "maaf anda tidak mendapatkan diskon" << endl;
+    }
+
+    return 0;
+}
